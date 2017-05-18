@@ -1,0 +1,42 @@
+.content{
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-top: 50px;
+	background: #f4f5f7
+}
+
+.rightBar{
+	margin-left: -15px;
+}
+
+.course-list .list-group-item{
+	border: 0;
+}
+
+.comment-list{
+	margin-top: 20px;
+}
+
+.comment-list .list-group-item{
+	border-bottom: 1px;
+}
+
+.long{
+	text-overflow:ellipsis;
+	-moz-text-overflow: ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	line-height: 50px;
+}
+
+.comment img{
+	width: 50px;
+	height: 50px;
+}
+
+.video{
+	background: black;
+	-webkit-border-radius:1%;
+	-moz-border-radius:1%;
+	border-radius:1%;
+}

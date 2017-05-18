@@ -1,0 +1,59 @@
+.myuser{
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 50px;
+	background: url('../../img/banner/0.jpg') rgb(230, 230, 220) no-repeat;
+	background-size: 100% 200px;
+}
+
+.myuser small{
+	margin-left: 10%;
+}
+
+.myuser .user-img{
+	width: 100px;
+	height: 100px;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+.briefing{
+	background: transparent;
+	border: transparent;
+	color: #000;
+	width: 100%;
+}
+
+.content-main{
+	padding-right: 5%;
+	padding-top: 50px;
+	min-height: 400px;
+    padding-bottom: 50px;
+}
+
+.content-main-inner{
+	background: #e6e6dc;
+    display: none;
+}
+
+.left-list a{
+    cursor: pointer;
+}
+
+.username{
+    font-size: 24px;
+    color: #000;
+}
+
+.follow{
+    font-size: 20px;
+    line-height:40px;
+    color: #3c3c3c;
+}
+
+@media screen and (max-width: 768px) {
+    .user-details{
+        text-align: center;
+    }
+}
+

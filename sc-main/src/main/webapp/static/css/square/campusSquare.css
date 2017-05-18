@@ -1,0 +1,96 @@
+.mycarousel{
+	margin-bottom: 50px;
+}
+
+.post-list{
+	margin-top: 20px;
+}
+
+.post{
+	margin-bottom: 50px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+}
+
+.post .user-details span{
+    padding: 10px;
+    line-height: 30px;
+}
+
+.post .user-img{
+    width: 25px;
+    height: 25px;
+}
+
+.long{
+    text-overflow:ellipsis;
+    -moz-text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
+
+.long img{
+    max-width: 100%;
+    height:auto;
+}
+
+.contentin {
+	overflow-y:scroll;
+	max-height:300px;
+}
+
+.send-post .input-content{
+	line-height: 50px;
+}
+
+.content{
+    margin-bottom: 50px;
+}
+
+.night-style-content {
+	background: #222;
+	color: gray;
+	border-color: black;
+}
+
+.night-style-post{
+    background: #333;
+}
+
+.night-style-post-active{
+    background: #444;
+}
+
+.chat {
+	overflow: hidden;
+}
+
+.chat span {
+	line-height: 100px;
+}
+
+.chat-list{
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.random{
+    background-color: #e4b9c0;
+    color: black;
+    border: thin solid #999999;
+}
+
+.random:hover{
+    background-color: #dca7a7;
+}
+
+.change{
+    background: #222;
+    color: white;
+}
+
+.change:hover{
+    background: #111;
+    color: #999999;
+}
