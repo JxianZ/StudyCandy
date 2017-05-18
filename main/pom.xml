@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.studycandy</groupId>
-    <artifactId>sc-main</artifactId>
+    <artifactId>main</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>sc-main</name>
+    <name>main</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>

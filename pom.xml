@@ -7,7 +7,7 @@
     <version>1.0</version>
 
     <modules>
-        <module>sc-main</module>
+        <module>main</module>
     </modules>
 
     <name>StudyCandy</name>
