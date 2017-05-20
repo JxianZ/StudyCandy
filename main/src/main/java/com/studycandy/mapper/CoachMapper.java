@@ -1,6 +1,7 @@
 package com.studycandy.mapper;
 
 import com.studycandy.model.Coach;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -22,4 +23,6 @@ public interface CoachMapper {
     int acceptCoach(Integer coachId);
 
     int solveCoach(Integer coachId);
+
+    public int acCoach(@Param("id")Integer id, @Param("coachId")Integer coachId);
 }

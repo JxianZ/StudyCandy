@@ -34,4 +34,6 @@ public class UserInfoService {
     public Integer changeUserIntegral(Integer id, Integer userIntegral){
         return userInfoMapper.updateUserIntegral(id, userIntegral);
     }
+
+
 }

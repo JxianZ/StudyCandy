@@ -86,5 +86,6 @@ public class QAService {
     }
     public int acceptCoach(Integer id){return coachMapper.acceptCoach(id);}
     public int solveCoach(Integer id){return coachMapper.solveCoach(id);}
+    public int acCoach(Integer id, Integer coachId){return coachMapper.acCoach(id, coachId);}
     /*预约制 End*/
 }

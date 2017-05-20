@@ -146,4 +146,16 @@ public class UserServiceImpl implements UserService {
         }
         return m;
     }
+    @Override
+    public Map<Integer, String> getNicknameByAnswer(List<Answer> l){
+        Map<Integer,String> m = new HashMap<Integer,String>();
+        for(Answer a : l){
+            m.put(a.getUserId(),userMapper.selectByPrimaryKey(a.getUserId()).getUserNickname());
+        }
+        return m;
+    }
+    @Override
+    public String getNicknameById(Integer id){
+        return userMapper.selectByPrimaryKey(id).getUserNickname();
+    }
 }

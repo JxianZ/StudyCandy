@@ -20,6 +20,8 @@ public interface UserService {
 
     User getUserByUsername(String username);
 
+    String getNicknameById(Integer id);
+
     User loginGetObj(String username, String password);
 
     User editPassword(Integer userId, String password, String editPassword);
@@ -40,4 +42,6 @@ public interface UserService {
     Map<Integer,User> getUserByQuestion(List<Question> l);
 
     Map<Integer,User> getUserByAnswer(List<Answer> l);
+
+    Map<Integer, String> getNicknameByAnswer(List<Answer> l);
 }

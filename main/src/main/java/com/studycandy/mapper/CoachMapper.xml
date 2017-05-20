@@ -51,16 +51,23 @@
         from s_coach
         where user_id = #{userId,jdbcType=INTEGER}
     </select>
-    <update id="acceptCoach" parameterType="com.studycandy.model.Coach">
+    <update id="acceptCoach" parameterType="java.lang.Integer">
         update s_coach
         set
         coach_status = 0,
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="solveCoach" parameterType="com.studycandy.model.Coach">
+    <update id="solveCoach" parameterType="java.lang.Integer">
         update s_coach
         set
         coach_status = 1,
         where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="acCoach">
+        update s_coach
+        set
+        coach_status = 0,
+        coach_id = #{coachId}
+        where id = #{id}
     </update>
 </mapper>

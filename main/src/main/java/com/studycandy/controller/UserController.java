@@ -82,7 +82,7 @@ public class UserController extends BaseController {
         } else {
             this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, entity);
             request.getSession().setAttribute("userId",entity.getId());
-            return ajaxReturn(response, entity, "登陆成功", 0);
+            return ajaxReturn(response, null, "登陆成功", 0);
         }
     }
 
@@ -146,7 +146,7 @@ public class UserController extends BaseController {
                 return ajaxReturn(response, null, "注册失败", -1);
             }
             this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, user);
-            return ajaxReturn(response, user, "注册成功", 0);
+            return ajaxReturn(response, null, "注册成功", 0);
         } catch (Exception e) {
             return ajaxReturn(response, null, "注册失败", -1);
         }
