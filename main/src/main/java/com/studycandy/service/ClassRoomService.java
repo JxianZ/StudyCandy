@@ -22,4 +22,8 @@ public class ClassRoomService {
     public Classroom getClassRoomById(Integer id){
         return classroomMapper.selectByPrimaryKey(id);
     }
+
+    public List<Classroom> getListAllClassroom(){
+        return classroomMapper.selectAll();
+    }
 }

@@ -71,4 +71,21 @@
         where is_night = 1
         ORDER BY id DESC
     </select>
+    <!--TODO 取前几行mybeaties实现 -->
+    <select id="selectLatestDayPost" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select id, user_id, post_title, post_content, gmt_create, gmt_modified, like_num,
+        today_num, unlike_num, is_night
+        from s_post
+        where is_night = 0
+        ORDER BY id DESC
+        FETCH FIRST #{n,jdbcType=INTEGER} ROWS ONLY
+    </select>
+    <select id="selectLatestNightPost" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select id, user_id, post_title, post_content, gmt_create, gmt_modified, like_num,
+        today_num, unlike_num, is_night
+        from s_post
+        where is_night = 1
+        ORDER BY id DESC
+        FETCH FIRST #{n,jdbcType=INTEGER} ROWS ONLY
+  </select>
 </mapper>

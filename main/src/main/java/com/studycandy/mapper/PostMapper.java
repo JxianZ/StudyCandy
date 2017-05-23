@@ -22,4 +22,8 @@ public interface PostMapper {
 
     List<Post> selectAllNightPost();
 
+    List<Post> selectLatestDayPost(Integer n);
+
+    List<Post> selectLatestNightPost(Integer n);
+
 }

@@ -45,4 +45,12 @@ public class PostService {
     public List<Post> getAllDayPost(){ return mapper.selectAllDayPost(); }
 
     public List<Post> getAllNightPost(){ return mapper.selectAllNightPost(); }
+
+    public List<Post> getLatestDayPost(Integer n){
+        return mapper.selectLatestDayPost(n);
+    }
+
+    public List<Post> getLatestNightPost(Integer n){
+        return mapper.selectLatestNightPost(n);
+    }
 }
