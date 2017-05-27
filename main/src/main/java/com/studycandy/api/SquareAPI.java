@@ -134,129 +134,178 @@ public class SquareAPI extends BaseController {
         List<Post> l= postService.getLatestNightPost(10);
         return ajaxReturn(response, l, "", 0);
     }
-    //TODO 继续完善API
     //获取用户发布的所有帖子
-    @RequestMapping(value = "/alluserpost",  method = POST)
-    public String postList(HttpServletRequest request, HttpServletResponse response, Model model) {
+    @RequestMapping(value = "/postUserAll",  method = POST)
+    public String postList(HttpServletRequest request, HttpServletResponse response, Model model,
+                           @RequestParam String username,
+                           @RequestParam String password) {
         try {
-            List<Post> l = postService.getUserPostList(this.getCurrentUser(request).getId());
-            System.out.println(l);
-            return ajaxReturn(response, l, "成功", 0);
+            User user = userService.loginGetObj(username,password);
+            if(user == null)throw new Exception("用户状态异常");
+            List<Post> l = postService.getUserPostList(user.getId());
+            return ajaxReturn(response, l, "用户"+user.getId()+"所有帖子", 0);
         } catch (Exception e) {
-            return ajaxReturn(response, null, "失败", 0);
+            return ajaxReturn(response, null, e.getMessage(), -1);
         }
     }
     //删除帖子
     @RequestMapping(value = "/deletePost", method = POST)
     public String deletePost(HttpServletRequest request, HttpServletResponse response, Model model,
+                             @RequestParam String username,
+                             @RequestParam String password,
                              @RequestParam Integer id) {
         //判断是否是帖子主人删除
-        if(this.getCurrentUser(request).getId()==postService.getPostById(id).getUserId())
-            postService.deleteById(id);
-        return "square/campusSquare";
+        try {
+            User user = userService.loginGetObj(username,password);
+            if(user == null)throw new Exception("用户状态异常");
+            if(user.getId() == postService.getPostById(id).getUserId())
+                postService.deleteById(id);
+            else
+                throw new Exception("删除异常");
+            return ajaxReturn(response, "success", "帖子删除成功", 0);
+        } catch (Exception e) {
+            return ajaxReturn(response, null, e.getMessage(), -1);
+        }
     }
     //获取单个帖子详细界面
-    @RequestMapping(value = "/postview/{id}")
+    @RequestMapping(value = "/postView/{id}")
     public String getPost(HttpServletRequest request, HttpServletResponse response, Model model,
                           @PathVariable("id") Integer id) {
-        List<CommentPost> l = commentPostService.getCommentPostListByPostId(id);
-        Map<Integer, String> m = new HashMap<Integer, String>();
-        for(CommentPost p : l) {
-            m.put(p.getUserId(),userService.getUserById(p.getUserId()).getUserNickname());
+        try {
+            List<CommentPost> l = commentPostService.getCommentPostListByPostId(id);
+            Post post = postService.getPostById(id);
+            if(post == null) throw new Exception("帖子不存在");
+            Map<Integer, String> m = new HashMap<Integer, String>();
+            for (CommentPost p : l) {
+                m.put(p.getUserId(), userService.getUserById(p.getUserId()).getUserNickname());
+            }
+            Map map = new HashMap();
+            map.put("Post", post);
+            map.put("User", userService.getNicknameById(postService.getPostById(id).getUserId()));
+            map.put("Comments", l);
+            map.put("Commenters", m);
+            return ajaxReturn(response, map, id + "帖子信息", 0);
+        }catch(Exception e){
+            return ajaxReturn(response, null, e.getMessage(), -1);
         }
-        model.addAttribute("postComments",l);
-        model.addAttribute("postCommentsUserName",m);
-        model.addAttribute("post",postService.getPostById(id));
-        model.addAttribute("user",userService.getUserById(postService.getPostById(id).getUserId()));
-        return "square/post";
     }
     //进入修改帖子界面
-    @RequestMapping(value = "/modify/{id}", method = POST)
+    @RequestMapping(value = "/modifyPost/{id}", method = POST)
     public String modify(HttpServletRequest request, HttpServletResponse response, Model model,
-                         @PathVariable("id") Integer id) {
-        Post t = postService.getPostById(id);
-        //判断是否是帖子主人要进行修改
-        if(this.getCurrentUser(request).getId()==t.getUserId()){
-            t.setGmtModified(new Timestamp(new Date().getTime()));
-            model.addAttribute("post",t);
-            return "modifypostview";
-        }else{
-            return "campusSquare";
+                         @PathVariable("id") Integer id,
+                         @RequestParam String title,
+                         @RequestParam String content,
+                         @RequestParam String username,
+                         @RequestParam String password) {
+        try {
+            User user = userService.loginGetObj(username,password);
+            if(user == null)throw new Exception("用户状态异常");
+            Post entity = postService.getPostById(id);
+            if(entity == null) throw new Exception("帖子不存在");
+            entity.setPostTitle(title);
+            entity.setPostContent(content);
+            long date = new Date().getTime();
+            entity.setGmtModified(new Timestamp(date));
+            entity.setUserId(user.getId());
+            postService.modifyPost(entity);
+        } catch (Exception e) {
+            return ajaxReturn(response, null, e.getMessage(), -1);
         }
-    }
-    //提交帖子修改
-    @RequestMapping(value = "/postmodify", method = POST)
-    public String modifyPost(HttpServletRequest request, HttpServletResponse response, Model model,
-                             @RequestParam Post post) {
-        //判断是否是帖子主人修改
-        if(this.getCurrentUser(request).getId()==post.getUserId())
-            postService.modifyPost(post);
-        model.addAttribute("post",post);
-        //修改完之后转到帖子详细界面
-        return "redirect:square/postview/"+post.getId();
+        return ajaxReturn(response, null, "修改成功！", 0);
     }
     /*评论功能 Start*/
     //获取帖子的所有回复
-    @RequestMapping(value = "/postcomments/{postId}")
+    @RequestMapping(value = "/postCommentAllList/{postId}")
     public String postComments(HttpServletRequest request, HttpServletResponse response, Model model,
                                @PathVariable("postId") Integer id){
-        List<CommentPost> l = commentPostService.getCommentPostListByPostId(id);
-        Map<Integer, String> m = new HashMap<Integer, String>();
-        for(CommentPost p :l) {
-            m.put(p.getId(),userService.getUserById(p.getUserId()).getUserNickname());
+        try {
+            List<CommentPost> l = commentPostService.getCommentPostListByPostId(id);
+            if(l == null) throw new Exception("帖子不存在或没有评论");
+            Map<Integer, String> m = new HashMap<Integer, String>();
+            for (CommentPost p : l) {
+                m.put(p.getId(), userService.getNicknameById(p.getUserId()));
+            }
+            Map map = new HashMap();
+            map.put("postComments", l);
+            map.put("postCommentsUserName", m);
+            return ajaxReturn(response, map, id+"帖子回帖", -1);
+        }catch (Exception e){
+            return ajaxReturn(response, null, e.getMessage(), -1);
         }
-        model.addAttribute("postComments",l);
-        model.addAttribute("postCommentsUserName",m);
-        return "postcomments";
     }
     //添加回复
-    @RequestMapping(value = "/addcomment",method = POST)
+    @RequestMapping(value = "/addPostComment",method = POST)
     public String addcomment(HttpServletRequest request, HttpServletResponse response, Model model,
                              @RequestParam Integer postId,
-                             @RequestParam String commentContent){
-        CommentPost entity = new CommentPost();
-        entity.setPostId(postId);
-        entity.setFollowId(-1);
-        entity.setGmtCreate(new Timestamp(new Date().getTime()));
-        entity.setGmtModified(new Timestamp(new Date().getTime()));
-        entity.setCommentContent(commentContent);
+                             @RequestParam String commentContent,
+                             @RequestParam String username,
+                             @RequestParam String password){
         try {
-            entity.setUserId(this.getCurrentUser(request).getId());
+            User user = userService.loginGetObj(username,password);
+            if(user == null)throw new Exception("用户状态异常");
+            Post post = postService.getPostById(postId);
+            if(post == null) throw new Exception("帖子不存在");
+            CommentPost entity = new CommentPost();
+            entity.setPostId(postId);
+            entity.setFollowId(-1);
+            long date = new Date().getTime();
+            entity.setGmtCreate(new Timestamp(date));
+            entity.setGmtModified(new Timestamp(date));
+            entity.setCommentContent(commentContent);
+            entity.setUserId(user.getId());
             commentPostService.saveCommentPost(entity);
         }catch (Exception e){
-            return ajaxReturn(response,null,"失败",-1);
+            return ajaxReturn(response,null,e.getMessage(),-1);
         }
-        return ajaxReturn(response,null,"成功",0);
+        return ajaxReturn(response,null,"回复成功",0);
     }
     //添加回复的回复
     @RequestMapping(value = "/addCommentToComment",method = POST)
     public String addCommentToComment(HttpServletRequest request, HttpServletResponse response, Model model,
                                       @RequestParam Integer postId,
                                       @RequestParam String commentContent,
-                                      @RequestParam Integer followId){
-        CommentPost entity = new CommentPost();
-        entity.setPostId(postId);
-        entity.setFollowId(followId);
+                                      @RequestParam Integer followId,
+                                      @RequestParam String username,
+                                      @RequestParam String password){
         try {
-            entity.setUserId(this.getCurrentUser(request).getId());
+            User user = userService.loginGetObj(username,password);
+            if(user == null)throw new Exception("用户状态异常");
+            Post post = postService.getPostById(postId);
+            if(post == null) throw new Exception("帖子不存在");
+            CommentPost entity = new CommentPost();
+            entity.setPostId(postId);
+            entity.setFollowId(followId);
+            long date = new Date().getTime();
+            entity.setGmtCreate(new Timestamp(date));
+            entity.setGmtModified(new Timestamp(date));
+            entity.setCommentContent(commentContent);
+            entity.setUserId(user.getId());
+            commentPostService.saveCommentPost(entity);
         }catch (Exception e){
-
+            return ajaxReturn(response,null,e.getMessage(),-1);
         }
-        entity.setGmtCreate(new Timestamp(new Date().getTime()));
-        entity.setGmtModified(new Timestamp(new Date().getTime()));
-        entity.setCommentContent(commentContent);
-        commentPostService.saveCommentPost(entity);
-        return "postcomments";
+        return ajaxReturn(response,null,"回复成功",0);
     }
     //删除回复
     @RequestMapping(value = "deletecomment",method = POST)
     public String deleteComment(HttpServletRequest request, HttpServletResponse response, Model model,
-                                @RequestParam Integer commentId){
-        CommentPost t = commentPostService.getCommentPost(commentId);
-        //判断是否是评论主人要进行修改
-        if(this.getCurrentUser(request).getId()==t.getUserId())
-            commentPostService.deleteCommentPost(commentId);
-        return "postcomments";
+                                @RequestParam Integer commentId,
+                                @RequestParam String username,
+                                @RequestParam String password){
+        try {
+            User user = userService.loginGetObj(username, password);
+            if (user == null) throw new Exception("用户状态异常");
+            CommentPost t = commentPostService.getCommentPost(commentId);
+            if (t == null) throw new Exception("评论不存在");
+            //判断是否是评论主人要进行修改
+            if (user.getId() == t.getUserId())
+                commentPostService.deleteCommentPost(commentId);
+            else
+                throw new Exception("删除失败");
+        }catch (Exception e){
+            return ajaxReturn(response,null,e.getMessage(),-1);
+        }
+        return ajaxReturn(response,null,"回复成功",0);
     }
     /*评论功能 End*/
 }

@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.sql.Timestamp;
+
 import static com.studycandy.constant.Constant.SESSION_CURRENT_USER;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -82,5 +84,51 @@ public class UserAPI extends BaseController{
             return ajaxReturn(response, null, "注册失败", -1);
         }
     }
-    //TODO 完善个人信息 修改账号信息
+    @RequestMapping(value = "/complete ",method = POST)
+    public String complete (HttpServletRequest request, HttpServletResponse response,
+                            @RequestParam Integer schoolId,
+                            @RequestParam Integer stuId,
+                            @RequestParam String gender,
+                            @RequestParam String id_card,
+                            @RequestParam Long birth,
+                            @RequestParam String motto,
+                            @RequestParam String realname,
+                            @RequestParam String stuMajor,
+                            @RequestParam String username,
+                            @RequestParam String password){
+        try {
+            User user = userService.loginGetObj(username, password);
+            if (user == null) throw new Exception("用户状态异常");
+            UserInfo userInfo = userInfoService.getByUserId(user.getId());
+            if(userInfo == null){
+                userInfo = new UserInfo();
+                userInfo.setId(user.getId());
+                userInfo.setUserSchoolId(schoolId);
+                userInfo.setUserStuId(stuId);
+                userInfo.setUserGender(gender);
+                userInfo.setUserIdCard(id_card);
+                userInfo.setUserBirth(new Timestamp(birth));
+                userInfo.setUserMotto(motto);
+                userInfo.setUserRealname(realname);
+                userInfo.setUserStuMajor(stuMajor);
+                userInfoService.saveUserInfo(userInfo);
+            }
+            userInfo.setUserSchoolId(schoolId);
+            userInfo.setUserStuId(stuId);
+            userInfo.setUserGender(gender);
+            userInfo.setUserIdCard(id_card);
+            userInfo.setUserBirth(new Timestamp(birth));
+            userInfo.setUserMotto(motto);
+            userInfo.setUserRealname(realname);
+            userInfo.setUserStuMajor(stuMajor);
+            userInfoService.updateUserInfo(userInfo);
+        }catch (Exception e){
+            return ajaxReturn(response,null,e.getMessage(),-1);
+        }
+        return ajaxReturn(response,null,"回复成功",0);
+
+
+
+
+    }
 }

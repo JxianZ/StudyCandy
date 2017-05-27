@@ -35,5 +35,9 @@ public class UserInfoService {
         return userInfoMapper.updateUserIntegral(id, userIntegral);
     }
 
+    public Integer updateUserInfo(UserInfo userInfo){
+        return userInfoMapper.updateByPrimaryKey(userInfo);
+    }
+
 
 }
