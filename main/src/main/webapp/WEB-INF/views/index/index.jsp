@@ -96,34 +96,34 @@
 
 <div class="container">
     <div class="entry-wrapper">
-        <h1 class="mod-title">三大入口</h1>
+        <h1 class="mod-title">校园入口</h1>
         <div class="row entry-inner">
 
             <div class="col-md-4 col-sm-4 entry-item">
                 <div class="entry-img">
-                    <img src="${__static__}/img/entry-test.jpg">
+                    <img src="${__static__}/img/entry-class.jpg">
                 </div>
-                <h3>haha</h3>
-                <p>hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha</p>
-                <a class="entry-button" href="#">More</a>
+                <h3>大教室</h3>
+                <p  style="color: #000;">同学大牛为你们提供的各类课程</p>
+                <a class="entry-button" href="#">进入</a>
             </div>
 
             <div class="col-md-4 col-sm-4 entry-item">
                 <div class="entry-img">
-                    <img src="${__static__}/img/entry-test.jpg">
+                    <img src="${__static__}/img/entry-coach.jpg">
                 </div>
-                <h3>haha</h3>
-                <p>hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha</p>
-                <a class="entry-button" href="#">More</a>
+                <h3>辅导室</h3>
+                <p style="color: #000;">有不会的学霸一对一辅导，支持线下哦</p>
+                <a class="entry-button" href="#">进入</a>
             </div>
 
             <div class="col-md-4 col-sm-4 entry-item">
                 <div class="entry-img">
-                    <img src="${__static__}/img/entry-test.jpg">
+                    <img src="${__static__}/img/entry-square.jpg">
                 </div>
-                <h3>haha</h3>
-                <p>hahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahaha</p>
-                <a class="entry-button" href="#">More</a>
+                <h3>校园广场</h3>
+                <p style="color: #000;">校园各类资讯动态，以及属于你的小秘密</p>
+                <a class="entry-button" href="#">进入</a>
             </div>
 
         </div>
@@ -143,37 +143,37 @@
             <div class="col-md-2 col-sm-2 col-xs-6">
                 <div class=" video-item">
                     <a href="#"><img src="${__static__}/img/video/item.png"></a>
-                    <h3>cls的python课堂</h3>
+                    <h3>域控服务器搭建</h3>
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-6">
                 <div class=" video-item">
                     <a href="#"><img src="${__static__}/img/video/item6.png"></a>
-                    <h3>wyf的c++课堂</h3>
+                    <h3>时间管理</h3>
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-6">
                 <div class=" video-item">
                     <a href="#"><img src="${__static__}/img/video/item2.png"></a>
-                    <h3>yxm的吹比课堂</h3>
+                    <h3>PS中阶技巧</h3>
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-6">
                 <div class=" video-item">
                     <a href="#"><img src="${__static__}/img/video/item3.png"></a>
-                    <h3>haha</h3>
+                    <h3>C++基础</h3>
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-6">
                 <div class=" video-item">
                     <a href="#"><img src="${__static__}/img/video/item4.png"></a>
-                    <h3>haha</h3>
+                    <h3>沙盘训练</h3>
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-6">
                 <div class=" video-item">
                     <a href="#"><img src="${__static__}/img/video/item5.png"></a>
-                    <h3>haha</h3>
+                    <h3>量化投资</h3>
                 </div>
             </div>
         </div>
@@ -181,37 +181,37 @@
             <div class="col-md-2 col-sm-2 col-xs-6">
                 <div class=" video-item">
                     <a href="#"><img src="${__static__}/img/video/item.png"></a>
-                    <h3>haha</h3>
+                    <h3>域控服务器搭建2</h3>
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-6">
                 <div class=" video-item">
                     <a href="#"><img src="${__static__}/img/video/item6.png"></a>
-                    <h3>haha</h3>
+                    <h3>时间管理2</h3>
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-6">
                 <div class=" video-item">
                     <a href="#"><img src="${__static__}/img/video/item2.png"></a>
-                    <h3>haha</h3>
+                    <h3>PS中阶技巧2</h3>
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-6">
                 <div class=" video-item">
                     <a href="#"><img src="${__static__}/img/video/item3.png"></a>
-                    <h3>haha</h3>
+                    <h3>C++基础2</h3>
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-6">
                 <div class=" video-item">
                     <a href="#"><img src="${__static__}/img/video/item4.png"></a>
-                    <h3>haha</h3>
+                    <h3>沙盘训练2</h3>
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-6">
                 <div class=" video-item">
                     <a href="#"><img src="${__static__}/img/video/item5.png"></a>
-                    <h3>haha</h3>
+                    <h3>量化投资2</h3>
                 </div>
             </div>
         </div>
@@ -230,90 +230,14 @@
         <div class="row">
             <div class="col-md-8 col-xs-12 square-body">
                 <ul>
-                    <li class="topli">
-                        <div class="navbar-left">
-                            <h6>活动</h6>
-                            <h5>【说吧骚年】</h5>
-                            <h5>春节期间你都打算为大家做点啥</h5>
-                        </div>
-                        <div class="navbar-right">
-                            <h6>288</h6>
-                            <h6>一个月前</h6>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="navbar-left">
-                            <h6>活动</h6>
-                            <h5>【说吧骚年】</h5>
-                            <h5>春节期间你都打算为大家做点啥</h5>
-                        </div>
-                        <div class="navbar-right">
-                            <h6>288</h6>
-                            <h6>一个月前</h6>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="navbar-left">
-                            <h6>活动</h6>
-                            <h5>【说吧骚年】</h5>
-                            <h5>春节期间你都打算为大家做点啥</h5>
-                        </div>
-                        <div class="navbar-right">
-                            <h6>288</h6>
-                            <h6>一个月前</h6>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="navbar-left">
-                            <h6>活动</h6>
-                            <h5>【说吧骚年】</h5>
-                            <h5>春节期间你都打算为大家做点啥</h5>
-                        </div>
-                        <div class="navbar-right">
-                            <h6>288</h6>
-                            <h6>一个月前</h6>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="navbar-left">
-                            <h6>活动</h6>
-                            <h5>【说吧骚年】</h5>
-                            <h5>春节期间你都打算为大家做点啥</h5>
-                        </div>
-                        <div class="navbar-right">
-                            <h6>288</h6>
-                            <h6>一个月前</h6>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="navbar-left">
-                            <h6>活动</h6>
-                            <h5>【说吧骚年】</h5>
-                            <h5>春节期间你都打算为大家做点啥</h5>
-                        </div>
-                        <div class="navbar-right">
-                            <h6>288</h6>
-                            <h6>一个月前</h6>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="navbar-left">
-                            <h6>活动</h6>
-                            <h5>【说吧骚年】</h5>
-                            <h5>春节期间你都打算为大家做点啥</h5>
-                        </div>
-                        <div class="navbar-right">
-                            <h6>288</h6>
-                            <h6>一个月前</h6>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="square-button-wrapper" id="square-more">查看全部帖子</div>
+
+                    <li id="postList">
+                        <a href="/square" style="text-decoration: none;"><div class="square-button-wrapper" id="square-more">查看全部帖子</div></a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-4 hidden-xs hidden-sm square-ad">
-                广告位招租
+                <img src="${__static__}/img/ad.jpg">
             </div>
         </div>
     </div>
@@ -329,21 +253,41 @@
 <script src="${__static__}/js/bootstrap.min.js"></script>
 <script src="${__static__}/js/carousel.js"></script>
 <script src="${__static__}/js/style-assit.js"></script>
-
 <!-- 实现首页校园广场数据读取  未完成 js -->
-<!-- <script type="text/javascript">
+<script type="text/javascript">
+    function add0(m){return m<10?'0'+m:m }
+    function format(timestamp)
+    {
+        //timestamp是整数，否则要parseInt转换,不会出现少个0的情况
+
+        var time = new Date(timestamp);
+        var year = time.getFullYear();
+        var month = time.getMonth()+1;
+        var date = time.getDate();
+        var hours = time.getHours();
+        var minutes = time.getMinutes();
+        var seconds = time.getSeconds();
+        return year+'-'+add0(month)+'-'+add0(date)+' '+add0(hours)+':'+add0(minutes)+':'+add0(seconds);
+    }
     window.onload = function() {
         $.ajax({
             type: "GET",
             url: "/square/postList",
-            data: "list",
             dataType:"json",
-            success: null,
+            success: function (r) {
+                console.log(r.data);
+                for(var key in r.data){
+                    $("#postList").before(
+
+                        "<li class='topli'> <div class='navbar-left'> <h6>校园</h6><h5>"+r.data[key].postTitle+"</h5> </div> <div class='navbar-right'> <h6>999</h6> <h6>"+format(r.data[key].gmtCreate)+"</h6> </div> </li>"
+                    );
+                }
+            },
             error: {}
         });
     };
 </script>
--->
+
 
 </body>
 </html>

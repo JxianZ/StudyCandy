@@ -123,7 +123,7 @@ public class SquareController extends BaseController {
             List<Post> list= new ArrayList<Post>();
             List<Post> t =  postService.getAllPost();
             int t_size = t.size(),m = 0;
-            m=t_size>5 ? 5 : t_size;
+            m=t_size>7 ? 7 : t_size;
             for(int i =1;i<=m;i++){
                 list.add(t.get(t.size()-i));
             }

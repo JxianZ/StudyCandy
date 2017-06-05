@@ -90,5 +90,5 @@ $(function() {
 });
 
 function test() {
-    $(".chat-list").append("<div class='chat row'><div class='col-xs-2 col-md-2'><img src='../../../static/img/user-big.jpeg' class='img-responsive img-circle'></div><div class='col-xs-10 col-md-10'><span>我喜欢你</span></div></div>");
+    $(".chat-list").append("<div class='chat row'><div class='col-xs-2 col-md-2'><img src='../../../static/img/user-big.jpeg' class='img-responsive img-circle'></div><div class='col-xs-10 col-md-10'><span>那咱们约个时间见个面</span></div></div>");
 }

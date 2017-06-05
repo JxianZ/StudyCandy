@@ -170,7 +170,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h1 class="modal-title text-center">滚去登陆</h1>
+                                    <h1 class="modal-title text-center">请登陆</h1>
                                 </div>
                             </div>
                         </div>
@@ -196,7 +196,7 @@
                                 </div>
                                 <div class="chat row text-right">
                                     <div class="col-xs-10 col-md-10">
-                                        <span>玛德，给我滚</span>
+                                        <span>我也很高兴见到你</span>
                                     </div>
                                     <div class="col-xs-2 col-md-2">
                                         <img src="${__static__}/img/user-big.jpeg" class="img-responsive img-circle">

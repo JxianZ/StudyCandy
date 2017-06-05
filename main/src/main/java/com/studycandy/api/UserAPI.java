@@ -79,7 +79,7 @@ public class UserAPI extends BaseController{
                 return ajaxReturn(response, null, "注册失败", -1);
             }
             this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, user);
-            return ajaxReturn(response, null, "注册成功", 0);
+            return ajaxReturn(response, user, "注册成功", 0);
         } catch (Exception e) {
             return ajaxReturn(response, null, "注册失败", -1);
         }

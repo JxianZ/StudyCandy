@@ -34,11 +34,7 @@ public class BigClassroomController extends BaseController {
     @RequestMapping(value = {"", "/"})
     public String classList(HttpServletRequest request, HttpServletResponse response, Model model) {
         //推荐课表 TODO 获取推荐课程列表
-        List<Classroom> l = new ArrayList<Classroom>();
-        l.add(classRoomService.getClassRoomById(1));
-        l.add(classRoomService.getClassRoomById(3));
-
-        model.addAttribute("classRoomList",l);
+        model.addAttribute("classRoomList",classRoomService.getListAllClassroom());
         return "classroom/bigClassroom";
     }
 
