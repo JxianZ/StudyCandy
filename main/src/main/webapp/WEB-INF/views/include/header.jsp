@@ -23,7 +23,6 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-ul">
-                    <!--TODO a 超链接做成ajax方法 -->
                     <li><a href="/classroom/">大教室</a></li>
                     <li><a href="/QARoom">辅导室</a></li>
                     <li><a href="/selfstudy">自习室</a></li>
@@ -35,7 +34,8 @@
                         <div class="row">
                             <div class="col-xs-9">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="搜索...">
+                                    <!--TODO 临时大小调整 -->
+                                    <input type="text" class="form-control" placeholder="搜索..." style="width: 140px">
                                 </div>
                             </div>
                             <div class="col-xs-2">

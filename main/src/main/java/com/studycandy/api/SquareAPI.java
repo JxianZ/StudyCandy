@@ -3,6 +3,7 @@ package com.studycandy.api;
 import com.studycandy.core.BaseController;
 import com.studycandy.model.CommentPost;
 import com.studycandy.model.Post;
+import com.studycandy.model.PostComment_t;
 import com.studycandy.model.User;
 import com.studycandy.service.CommentPostService;
 import com.studycandy.service.PostService;
@@ -221,14 +222,12 @@ public class SquareAPI extends BaseController {
         try {
             List<CommentPost> l = commentPostService.getCommentPostListByPostId(id);
             if(l == null) throw new Exception("帖子不存在或没有评论");
-            Map<Integer, String> m = new HashMap<Integer, String>();
+            List<PostComment_t> list = new ArrayList<>();
             for (CommentPost p : l) {
-                m.put(p.getId(), userService.getNicknameById(p.getUserId()));
+                PostComment_t c = new PostComment_t(p.getId(), p.getPostId(),userService.getNicknameById(p.getUserId()), p.getCommentContent(), p.getGmtCreate(), p.getGmtModified(),p.getLikeNum(), p.getTodayNum(), p.getUnlikeNum(), p.getFollowId());
+                list.add(c);
             }
-            Map map = new HashMap();
-            map.put("postComments", l);
-            map.put("postCommentsUserName", m);
-            return ajaxReturn(response, map, id+"帖子回帖", -1);
+            return ajaxReturn(response, list, id+"帖子回帖", 0);
         }catch (Exception e){
             return ajaxReturn(response, null, e.getMessage(), -1);
         }

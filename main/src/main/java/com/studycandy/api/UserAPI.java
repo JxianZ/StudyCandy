@@ -46,6 +46,7 @@ public class UserAPI extends BaseController{
             return ajaxReturn(response, null, "用户名或密码错误", -1);
         } else {
             //TODO 让手机获得登录用户信息
+            entity.setUserPassword(password);
             return ajaxReturn(response, entity, "登陆成功", 0);
         }
     }
@@ -78,7 +79,7 @@ public class UserAPI extends BaseController{
                 userService.deleteUser(userService.getUserByUsername(username).getId());
                 return ajaxReturn(response, null, "注册失败", -1);
             }
-            this.getHttpSession(request).setAttribute(SESSION_CURRENT_USER, user);
+            user.setUserPassword(password);
             return ajaxReturn(response, user, "注册成功", 0);
         } catch (Exception e) {
             return ajaxReturn(response, null, "注册失败", -1);

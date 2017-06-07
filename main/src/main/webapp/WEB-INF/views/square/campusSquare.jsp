@@ -37,35 +37,36 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img class="img-responsive" src="${__static__}/img/banner/0.jpg">
+                    <img src="${__static__}/img/banner/0.jpg" alt="...">
                     <div class="carousel-caption">
-                        testtestetstetstetstetstetst
+
                     </div>
                 </div>
                 <div class="item">
-                    <img class="img-responsive" src="${__static__}/img/banner/1.jpg">
+                    <img src="${__static__}/img/banner/1.jpg" alt="...">
                     <div class="carousel-caption">
-                        ...
+
                     </div>
                 </div>
                 <div class="item">
-                    <img class="img-responsive" src="${__static__}/img/banner/2.jpg">
+                    <img src="${__static__}/img/banner/2.jpg" alt="...">
                     <div class="carousel-caption">
-                        ...
+
                     </div>
                 </div>
                 <div class="item">
-                    <img class="img-responsive" src="${__static__}/img/banner/3.jpg">
+                    <img src="${__static__}/img/banner/3.jpg" alt="...">
                     <div class="carousel-caption">
-                        ...
+
                     </div>
                 </div>
                 <div class="item">
-                    <img class="img-responsive" src="${__static__}/img/banner/4.jpg">
+                    <img src="${__static__}/img/banner/4.jpg" alt="...">
                     <div class="carousel-caption">
-                        ...
+
                     </div>
                 </div>
+
             </div>
             <!-- Controls -->
             <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
